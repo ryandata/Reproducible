@@ -1,0 +1,1509 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass beamer
+\begin_preamble
+\usepackage{layout}
+\usetheme{Goettingen}
+\usefonttheme{serif} 
+\usecolortheme{beaver}
+\setbeamerfont{structure}{family=\rmfamily,shape=\scshape} 
+\hypersetup{colorlinks, citecolor=black, filecolor=black, linkcolor=blue, urlcolor=blue}
+
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+
+\date{}
+\end_preamble
+\use_default_options true
+\begin_modules
+eqs-within-sections
+figs-within-sections
+theorems-ams
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 1
+\tocdepth 1
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Reproducible Research
+\end_layout
+
+\begin_layout Date
+Spring 2017
+\end_layout
+
+\begin_layout Author
+Ryan Womack
+\end_layout
+
+\begin_layout Institute
+Data Librarian, Rutgers University, rwomack@rutgers.edu
+\end_layout
+
+\begin_layout TitleGraphic
+
+\size small
+\begin_inset Graphics
+	filename /home/ryan/womack/documents/ryan/identity/work/copyright/CC-BY-NA-SA.png
+	scale 30
+
+\end_inset
+
+
+\size scriptsize
+ This work is licensed under a 
+\begin_inset CommandInset href
+LatexCommand href
+name "Creative Commons Attribution -NonCommercial-ShareAlike 4.0 International License"
+target "http://creativecommons.org/licenses/by-nc-sa/4.0/"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Reproducibility: What do we mean?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size small
+Credibility in Science
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size small
+Scientific fraud is 
+\begin_inset CommandInset href
+LatexCommand href
+name "on the rise"
+target "http://www.theguardian.com/science/2012/oct/01/tenfold-increase-science-paper-retracted-fraud"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\size small
+Duke “
+\begin_inset CommandInset href
+LatexCommand href
+name "starter set"
+target "http://bioinformatics.mdanderson.org/Supplements/ReproRsch-All/Modified/StarterSet/index.html"
+
+\end_inset
+
+” and 
+\begin_inset CommandInset href
+LatexCommand href
+name "article"
+target "http://science.sciencemag.org/content/353/6303/977?rss=1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size small
+Research misconduct is a problem, but so is 
+\begin_inset CommandInset href
+LatexCommand href
+name "human error"
+target "http://en.wikipedia.org/wiki/Growth_in_a_Time_of_Debt"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\size small
+Reputation, Prestige, and Funding are all affected
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size small
+"
+\begin_inset CommandInset href
+LatexCommand href
+name "Set the default to Open"
+target "http://www.huffingtonpost.com/david-h-bailey/set-the-default-to-open-r_b_2635850.html"
+
+\end_inset
+
+"
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\size small
+Replication (redoing the experiment from scratch) is expensive, and may
+ not be possible due to the passage of time.
+ (see 
+\begin_inset CommandInset href
+LatexCommand href
+name "Validation"
+target "http://validation.scienceexchange.com/"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+Science on 
+\begin_inset CommandInset href
+LatexCommand href
+name "Replication and Reproducibility"
+target "http://www.sciencemag.org/content/334/6060.toc"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+Victoria Stodden, Friedrich Leisch, and Roger D.
+ Peng (eds.).
+ 
+\emph on
+Implementing Reproducible Research
+\emph default
+.
+ CRC Press, 2014.
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\size scriptsize
+“In all research that utilizes a computer, instructions for the research
+ are stored in software and scientific data are stored digitally.
+ A typical publication in computational research is based foundationally
+ on data, and the computer instructions applied to the data that generated
+ the scientific findings.
+ The complexity of the data generation mechanism and the computational instructi
+on is typically very large, too large to capture in a traditional scientific
+ publication.
+ Hence when computers are involved in the research process, scientific publicati
+on must shift from a scientific article to the triple of scientific paper,
+ and the software and data from which the findings were generated.
+ This triple has been referred to as a “research compendia” and its aim
+ is to transmit research findings that others in the field will be able
+ to reproduce by running the software on the data.
+ Hence, data and software that permits others to reproducible the findings
+ must be made available.”
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+– Victoria Stodden - http://blog.stodden.net/2014/09/28/my-input-for-theostp-rfi-o
+n-reproducibility/
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Exemplars from the Social Sciences
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "ICPSR"
+target "http://icpsr.umich.edu"
+
+\end_inset
+
+ has been in operation for over 50 years, with well-established archiving
+ practices and data documentation via codebooks and metadata
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "IPUMS"
+target "http://ipums.org"
+
+\end_inset
+
+ is reformatting and making data compatible across many decades and different
+ projects, to enable international comparisons of microdata
+\end_layout
+
+\begin_layout Itemize
+Coming from the world in the social sciences where long-term is, if not
+ always routine, at least well-established
+\end_layout
+
+\begin_layout Itemize
+Disciplinary separation of practices is diminishing when similar computational
+ techniques can be applied to physical sciences or digital humanities
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Outline
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+We will illustrate some practices in a few contexts
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+an individual researcher 
+\end_layout
+
+\begin_layout Itemize
+a team or research group
+\end_layout
+
+\begin_layout Itemize
+ongoing, large-scale collaboration
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Section
+Individuals (Everyone)
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The Data In Itself
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Some basic practices:
+\end_layout
+
+\begin_layout Itemize
+Keep raw data pristine and separate from any working data
+\end_layout
+
+\begin_layout Itemize
+Document your variables and data collection
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+anything you yourself would forget when revisiting the project 3 years later
+ in response to a query
+\end_layout
+
+\begin_layout Itemize
+that will be the same thing other users need too!
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Don't work in Excel [if you can] or other manual editing environment
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+you should write down all your steps if you are doing this
+\end_layout
+
+\begin_layout Itemize
+better to use code or an environment that will at least record your steps
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+DOI
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+name "DOI"
+target "http://www.doi.org"
+
+\end_inset
+
+, the Digital Object identifier, is the great success story
+\end_layout
+
+\begin_layout Itemize
+makes it easy to have a permanent reference and good citation practice
+\end_layout
+
+\begin_layout Itemize
+usually associated with quality data repositories
+\end_layout
+
+\begin_layout Itemize
+encapsulates a lot of good stuff 
+\end_layout
+
+\begin_layout Itemize
+moral: defined standards and centralized tools make adoption and use easy
+\end_layout
+
+\begin_layout Itemize
+Treat your local data as if you were pulling it from a DOI, and you will
+ be baking in reproducibility
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Code/Data/Document Integration
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\size small
+We will discuss examples in R, but other programming environments support
+ this as well (Mathematica notebooks, Python/Jupyter)
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+originally implemented in LaTeX + 
+\begin_inset CommandInset href
+LatexCommand href
+name "Sweave"
+target "http://www.statistik.lmu.de/~leisch/Sweave/"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+can embed R code and run it as the document is generated
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+Code that is “tangled” in with text can be extracted, and formatted documents
+ can be “woven” from the literate program.
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+always ensures that the latest data and results are actually incorporated
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+helps to document and explain code in context (literate programming)
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+PDF, document, and HTML formats are easy to obtain
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+knitr and Markdown
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Markdown + 
+\begin_inset CommandInset href
+LatexCommand href
+name "knitr"
+target "http://yihui.name/knitr/"
+
+\end_inset
+
+ has become a popular, lightweight replacement
+\end_layout
+
+\begin_layout Itemize
+Simple syntax and implementation
+\end_layout
+
+\begin_layout Itemize
+Integrated into RStudio
+\end_layout
+
+\begin_layout Itemize
+Publish documents with one click at 
+\begin_inset CommandInset href
+LatexCommand href
+name "RPubs"
+target "http://rpubs.com/ryandata/217248"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Can fall back on LaTeX/Sweave for more complex document formatting
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+A short Rmd file
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\size scriptsize
+--- title: "A short literate programming exercise" author: "Ryan Womack"
+ date: "October 10, 2016" output: pdf_document ---
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+```{r setup, include=FALSE} knitr::opts_chunk$set(echo = TRUE) ```
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+## Read in the data
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+Let's read in the data with the following commands:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+```{r load} library(readxl)
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+download.file("https://ryanwomack.com/data/PharmaDemo.xls", "mydata.xls")
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+mydata<-read_excel("mydata.xls")
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+names(mydata)
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+attach(mydata)
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+```
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+## Describe the Data
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+Then we will get some summary statistics on the Age and Weight variables:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+```{r summary} summary(Age)
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+summary(Weight) ```
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+Now plot the data:
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+```{r plot, echo=FALSE} library(ggplot2)
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+ggplot(mydata, aes(Weight, Age))+ geom_point() ```
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+## Regression
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+```{r regression} summary(lm(Age~Weight))
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+ggplot(mydata, aes(Weight, Age))+ geom_point()+ stat_smooth() ```
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+All done!
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The computing environment
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Open source is an important enabler of reproducibility
+\end_layout
+
+\begin_layout Itemize
+Anyone can grab copies of the software to execute
+\end_layout
+
+\begin_layout Itemize
+And can get older versions if necessary for compatibility
+\end_layout
+
+\begin_layout Itemize
+You can also record information about your computing environment (session.Info()
+ in R)
+\end_layout
+
+\begin_layout Itemize
+The 
+\begin_inset CommandInset href
+LatexCommand href
+name "checkpoint"
+target "https://cran.r-project.org/web/packages/checkpoint/index.html"
+
+\end_inset
+
+ package automates this process in R
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Other issues
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Don’t save output.
+ Where did it come from? This should be done in the code.
+\end_layout
+
+\begin_layout Itemize
+Clean, well-formatted data (
+\begin_inset CommandInset href
+LatexCommand href
+name "tidyr"
+target "http://blog.rstudio.org/2014/07/22/introducing-tidyr/"
+
+\end_inset
+
+) and code (
+\begin_inset CommandInset href
+LatexCommand href
+name "formatR"
+target "http://cran.r-project.org/web/packages/formatR/index.html"
+
+\end_inset
+
+) are a plus
+\end_layout
+
+\begin_layout Itemize
+If using “readme” files approach, document everything
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Other platforms
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Jupyter"
+target "http://jupyter.org/"
+
+\end_inset
+
+ grew out of iPython
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+now over 40 languages supported
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Mathematica Notebooks, cloud support
+\end_layout
+
+\begin_layout Itemize
+Cloud services making sharing much easier
+\end_layout
+
+\begin_layout Itemize
+Becoming an expectation
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Section
+Collaboration
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Collaboration
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The same forces (cloud computing, shared platforms, standards) are making
+ collaboration easier than ever
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Github"
+target "http://github.com"
+
+\end_inset
+
+, 
+\begin_inset CommandInset href
+LatexCommand href
+name "Bitbucket"
+target "http://bitbucket.com"
+
+\end_inset
+
+, and others enable easy collaboration on programming
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+with significant side benefits for reproducibility due to availability of
+ code
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+The 
+\begin_inset CommandInset href
+LatexCommand href
+name "Open Science Framework"
+target "https://osf.io/"
+
+\end_inset
+
+ provides a more data-specific approach 
+\end_layout
+
+\begin_layout Itemize
+A key feature is that the same platform is used for private work and then
+ public sharing
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Psychology reproducibility study"
+target "https://osf.io/ezcuj/"
+
+\end_inset
+
+ uses OSF.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+See the 
+\begin_inset CommandInset href
+LatexCommand href
+name "Science article"
+target "http://www.sciencemag.org/cgi/content/full/349/6251/aac4716?ijkey=1xgFoCnpLswpk&keytype=ref&siteid=sci"
+
+\end_inset
+
+ for a start
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Enabling Collaboration
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Collaborative projects must/should agree on:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+data practices and sharing platform
+\end_layout
+
+\begin_layout Itemize
+coding practices and sharing platform
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+This is made easier by already existing platforms and practices 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "ropensci"
+target "http://ropensci.org"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "ProjectTemplate"
+target "http://projecttemplate.net/"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Data and code can be distributed through packages, start with the package.skeleto
+n() command
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Yale ISPS
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+The 
+\begin_inset CommandInset href
+LatexCommand href
+name "Yale Institute for Social and Policy Studies"
+target "http://isps.yale.edu/"
+
+\end_inset
+
+ is an example of a research group that enables reproducibility.
+\end_layout
+
+\begin_layout Itemize
+Data and papers archived together onsite
+\end_layout
+
+\begin_layout Itemize
+Handles (not DOIs) for data
+\end_layout
+
+\begin_layout Itemize
+Code and documentation archived
+\end_layout
+
+\begin_layout Itemize
+Code review for correct execution
+\end_layout
+
+\begin_layout Itemize
+Good example of providing explanatory metadata for studies
+\end_layout
+
+\begin_layout Itemize
+Possible because the Institute requires compliance as a condition of grants
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Section
+Team Science
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Big Science
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Multi-year, multi-institutional projects that may continue beyond original
+ PIs 
+\emph on
+require
+\emph default
+ reproducibility.
+\end_layout
+
+\begin_layout Itemize
+Many people will be coming on and off of the project over time
+\end_layout
+
+\begin_layout Itemize
+Many unanticipated uses are anticipated (
+\begin_inset Quotes eld
+\end_inset
+
+known unknowns
+\begin_inset Quotes erd
+\end_inset
+
+ or something like that)
+\end_layout
+
+\begin_layout Itemize
+Collaboration and continuity must be consciously planned for
+\end_layout
+
+\begin_layout Itemize
+Decisions should be made with more consideration for future use than current
+ convenience
+\end_layout
+
+\begin_layout Itemize
+But disciplinary expertise is building in these areas
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "PDB"
+target "http://www.rcsb.org/pdb/home/home.do"
+
+\end_inset
+
+, of course
+\end_layout
+
+\begin_layout Itemize
+Also, 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://www.teamsciencetoolkit.cancer.gov/"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Big Science - Infrastructure
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+In big science, the main node(s) are enablers of future reuse
+\end_layout
+
+\begin_layout Itemize
+They provide basic infrastructure (
+\begin_inset CommandInset href
+LatexCommand href
+name "OOI"
+target "http://oceanobservatories.org/"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+But also provide a clearinghouse for other projects that link to and build
+ on the central node
+\end_layout
+
+\begin_layout Itemize
+One major future goal is to have more generic, all-purpose collaborative
+ infrastructure 
+\end_layout
+
+\begin_layout Itemize
+Rutgers is developing a Virtual Data Collaboratory for this purpose
+\end_layout
+
+\begin_layout Itemize
+Open infrastructure like 
+\begin_inset CommandInset href
+LatexCommand href
+name "Zenodo"
+target "http://zenodo.org"
+
+\end_inset
+
+, 
+\begin_inset CommandInset href
+LatexCommand href
+name "Dataverse"
+target "http://dataverse.org"
+
+\end_inset
+
+, 
+\begin_inset CommandInset href
+LatexCommand href
+name "OpenICSPR"
+target "http://openicpsr.org"
+
+\end_inset
+
+ and the 
+\begin_inset CommandInset href
+LatexCommand href
+name "Open Science Data Cloud"
+target "http://www.opensciencedatacloud.org "
+
+\end_inset
+
+ have been developed
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Big Science - Practices
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Standards such as DOI and ORCID enable the broader community to coalesce
+ around good practice
+\end_layout
+
+\begin_layout Itemize
+Data repositories are developing standards
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Re3data.org"
+target "http://re3data.org"
+
+\end_inset
+
+ is a directory of repositories
+\end_layout
+
+\begin_layout Itemize
+The 
+\begin_inset CommandInset href
+LatexCommand href
+name "Data Seal of Approval"
+target "http://www.datasealofapproval.org/"
+
+\end_inset
+
+ is awarded to repositories using sound data practices
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "ISO 16363"
+target "https://www.crl.edu/archiving-preservation/digital-archives/metrics-assessing-and-certifying/iso16363"
+
+\end_inset
+
+ (Trusted Digital Repositories) is a more stringent standard
+\end_layout
+
+\begin_layout Itemize
+One important step is to plan for what happens when the project winds down
+ (expectedly or unexpectedly)
+\end_layout
+
+\begin_layout Itemize
+What is the equivalent standard for computing and reproducibility?
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Big Science - Genomic Data Sharing
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Massive investments, massive amounts of data
+\end_layout
+
+\begin_layout Itemize
+Many repositories too (
+\begin_inset CommandInset href
+LatexCommand href
+name "NIH GDS"
+target "https://gds.nih.gov/02dr2.html"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+Existing repositories are useful and aggregate many software tools
+\end_layout
+
+\begin_layout Itemize
+But researchers want even larger pooled databases, especially for human
+ genome
+\end_layout
+
+\begin_layout Itemize
+Technical issues are complex, but the rights and permissions involved are
+ equally complex
+\end_layout
+
+\begin_layout Itemize
+How can data be federated for maximum discoverability?
+\end_layout
+
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Open Data -> Reproducible Research
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Increasing openness is a long-term trend
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Internet, Government, Data, Software, Cloud Computing
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Pressure for Reproducible Research can only increase as these trends intensify
+\end_layout
+
+\begin_layout Itemize
+Good news is...
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Benefits are clear for society and for knowledge creation!
+\end_layout
+
+\begin_layout Itemize
+Tools to enable this are getting easier all the time!
+\end_layout
+
+\begin_layout Itemize
+Eventually it will be a standard we will take for granted!
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Separator
+
+\end_layout
+
+\end_body
+\end_document
