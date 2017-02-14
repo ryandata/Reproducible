@@ -2,7 +2,9 @@
 title: "A short literate programming exercise"
 author: "Ryan Womack"
 date: "October 10, 2016"
-output: pdf_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -16,7 +18,7 @@ Let's read in the data with the following commands:
 ```{r load}
 library(readxl)
 
-download.file("http://ryanwomack.com/data/PharmaDemo.xls", "mydata.xls")
+download.file("https://ryanwomack.com/data/PharmaDemo.xls", "mydata.xls")
 
 mydata<-read_excel("mydata.xls")
 
